@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This logs into my server using a private-key file
+ssh -i ~/.ssh/school ubuntu@100.25.17.233
