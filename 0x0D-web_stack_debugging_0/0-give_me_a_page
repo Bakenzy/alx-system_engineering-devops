@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#This debugs my webpage
+sudo docker run -p 8080:80 -d -it holbertonschool/265-0
+key=$(docker ps | grep holbertonschool/265-0 | cut -d ' ' -f1)
+sudo docker exec -it "$key" /bin/bash
+sed -i 's/Listen 80/Listen 0.0.0.0:80/g' /etc/apache2/ports.conf
+sudo /etc/init.d/apache2 restart
+exit
