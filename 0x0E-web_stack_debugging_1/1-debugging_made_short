@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This debugs this container and allow it listen at 80
+sed -i -e 's/listen 8080/listen 80/'  -e 's/listen \[\:\:\]\:8080/listen \[\:\:\]\:80/' /etc/nginx/sites-enabled/default
+kill -HUP "$(pgrep -f "nginx: master process")"
+sudo service nginx stop
